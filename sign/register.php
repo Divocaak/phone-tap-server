@@ -1,10 +1,10 @@
 <?php
 header("Content-Type: text/html; charset=utf-8");
 
-include_once "config.php";
+include_once "../config.php";
 
 $outputMessage = "";
-$sql = 'SELECT id FROM user WHERE login=' . $_GET["phone"] . ';';
+$sql = 'SELECT id FROM users WHERE login=' . $_GET["phone"] . ';';
 if (mysqli_query($link, $sql)) {
     $outputMessage = "Zadaný login je již registrován!";
 }

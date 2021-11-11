@@ -1,8 +1,8 @@
 <?php
-include_once "config.php";
+include_once "../config.php";
 
 $return = [];
-$sql = 'SELECT login, token, password FROM user WHERE login="' . $_GET["phone"] . '";';
+$sql = 'SELECT login, token, password FROM users WHERE login="' . $_GET["phone"] . '";';
 if ($result = mysqli_query($link, $sql)) {
     while ($row = mysqli_fetch_row($result)) {
         if(password_verify($_GET["password"], $row[2])){

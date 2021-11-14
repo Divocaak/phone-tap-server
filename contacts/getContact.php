@@ -4,8 +4,11 @@ header("Content-Type: text/html; charset=utf-8");
 include_once "../config.php";
 
 $return = [];
-$sql = 'SELECT con.name, num.number, cat.name FROM contacts con INNER JOIN numbers num ON con.number_id = num.id
-INNER JOIN categories cat ON con.category_id = cat.id WHERE num.number = ' . $_GET["number"] . ';';
+$sql = 'SELECT con.name, num.number, cat.name FROM contacts con
+INNER JOIN numbers num ON con.number_id = num.id
+INNER JOIN categories cat ON con.category_id = cat.id
+WHERE num.number = ' . $_GET["number"] . ' AND con.user_id = ' . $_GET["userId"] . ';';
+
 if ($result = mysqli_query($link, $sql)) {
     while ($row = mysqli_fetch_row($result)) {
             $return = ["name" => $row[0],

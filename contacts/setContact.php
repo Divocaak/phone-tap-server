@@ -3,7 +3,6 @@ header("Content-Type: text/html; charset=utf-8");
 
 include_once "../config.php";
 
-$return = [];
 $insertedNumberId = 0;
 $e = "";
 
@@ -31,4 +30,5 @@ if ($e == "") {
 }else{
 echo $e;
 }
+mysqli_close($link);
 ?>
